@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/eljefedelrodeodeljefe/jefe.io#readme",
   "devDependencies": {
+    "firebase-functions": "^0.7.3",
     "firebase-tools": "^3.15.3"
   }
 }
