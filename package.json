@@ -1,0 +1,27 @@
+{
+  "name": "jefe.io",
+  "version": "1.0.0",
+  "description": "The personal blog of Robert Jefe Lindstaedt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "hugo && firebase deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eljefedelrodeodeljefe/jefe.io.git"
+  },
+  "keywords": [
+    "blog",
+    "personal",
+    "writings",
+    "code"
+  ],
+  "author": "Robert Jefe Lindstaedt <robert.lindstaedt@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/eljefedelrodeodeljefe/jefe.io/issues"
+  },
+  "homepage": "https://github.com/eljefedelrodeodeljefe/jefe.io#readme"
+}
