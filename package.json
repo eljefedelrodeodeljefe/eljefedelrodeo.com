@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
+    "dev": "hugo server -D",
     "deploy": "hugo && firebase deploy --token \"$FIREBASE_TOKEN\""
   },
   "repository": {

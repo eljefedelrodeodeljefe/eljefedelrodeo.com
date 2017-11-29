@@ -11,7 +11,7 @@
   * `firebase login`
 
 ```bash
- hugo server -D
+hugo server -D
 ```
 
 ## License
