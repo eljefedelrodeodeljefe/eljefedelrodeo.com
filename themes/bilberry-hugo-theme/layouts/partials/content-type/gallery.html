@@ -1,0 +1,18 @@
+<a class="bubble" href="{{ .URL }}">
+    <i class="fa fa-fw fa-camera"></i>
+</a>
+
+<article class="gallery">
+    {{ if and (isset .Params "gallery") (ne .Params.gallery "") }}
+    <div class="flexslider">
+        <ul class="slides">
+        {{ range .Params.gallery }}
+            <li><img src="{{ . | relURL }}" /></li>
+        {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+
+    {{ partial "default-content" . }}
+    {{ partial "tag-footer" . }}
+</article>

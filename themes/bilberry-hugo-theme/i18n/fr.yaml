@@ -1,0 +1,18 @@
+- id: categories
+  translation: "Catégories"
+- id: socialMedia
+  translation: "Médias sociaux"
+- id: latestPosts
+  translation: "Articles récents"
+- id: search
+  translation: "Chercher ..."
+- id: noSearchResults
+  translation: "Rien trouvé."
+- id: olderPosts
+  translation: "Articles plus anciens"
+- id: newerPosts
+  translation: "Articles plus récents"
+- id: footnoteReturnText
+  translation: "[revenir]"
+- id: continueReading
+  translation: "continuer la lecture"

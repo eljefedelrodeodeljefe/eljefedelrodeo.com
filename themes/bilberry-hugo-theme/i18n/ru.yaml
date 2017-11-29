@@ -1,0 +1,18 @@
+- id: categories
+  translation: "Темы"
+- id: socialMedia
+  translation: "Я в соцсетях"
+- id: latestPosts
+  translation: "Свежие записи"
+- id: search
+  translation: "Поиск..."
+- id: noSearchResults
+  translation: "Ничего не найдено."
+- id: olderPosts
+  translation: "Старые записи"
+- id: newerPosts
+  translation: "Новые записи"
+- id: footnoteReturnText
+  translation: "[Назад]"
+- id: continueReading
+  translation: "Читать далее..."
