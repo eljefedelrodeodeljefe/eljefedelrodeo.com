@@ -38,14 +38,18 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
+      - run: npm run pre-deploy
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - save_cache:
+          paths:
+            - functions/node_modules
+          key: v1-dependencies-functions-{{ checksum "functions/package.json" }}
         
       # run tests!
       - run: npm test
 
-      - run: npm run pre-deploy
       - run: npm run deploy
