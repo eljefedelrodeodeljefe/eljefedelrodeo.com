@@ -19,7 +19,7 @@ jobs:
     steps:
     steps:
       - checkout
-      - run: sudo go get -u github.com/kardianos/govendor
+      - run: go get -u github.com/kardianos/govendor
       - run:
           name: install-node
           command: curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash - && sudo apt-get install -y nodejs
