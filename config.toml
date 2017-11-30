@@ -1,5 +1,5 @@
-title = "The Rodeo"
-baseURL = "https://eljefedelrodeo.io"
+title = "The Rodeo de Jefe"
+baseURL = "https://ejdr.blog"
 theme = "bilberry-hugo-theme"
 
 enableRobotsTXT = true
@@ -8,7 +8,7 @@ enableRobotsTXT = true
 DefaultContentLanguage = "en"
 
 # Enable / Disable Google Analytics statistics for your site
-googleAnalytics = "UA-110458010-1"
+googleAnalytics = "UA-110458010-2"
 
 # Enable / Disable comments on the articles via Disqus.
 disqusShortname = ""
