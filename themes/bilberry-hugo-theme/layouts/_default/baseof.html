@@ -17,6 +17,9 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch-theme-algolia.min.css">
 
+        {{ range .Site.Params.custom_css -}}
+        <link rel="stylesheet" href="{{ . | absURL }}">
+        {{- end }}
 
         {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
         <title>{{ block "title" . }}{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}{{ end }}</title>

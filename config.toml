@@ -34,6 +34,8 @@ disqusShortname = ""
   algolia_apiKey    = ""
   algolia_indexName = ""
 
+  custom_css = ["css/custom.css"]
+
   # Header configuration
     # your subtitle if you want to use any
     subtitle = "Writings and collections of Robert Jefe Lindstaedt"
