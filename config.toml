@@ -1,5 +1,5 @@
 title = "The Rodeo"
-baseURL = "https://jefe.io"
+baseURL = "https://eljefedelrodeo.io"
 theme = "bilberry-hugo-theme"
 
 enableRobotsTXT = true
@@ -8,7 +8,7 @@ enableRobotsTXT = true
 DefaultContentLanguage = "en"
 
 # Enable / Disable Google Analytics statistics for your site
-googleAnalytics = "UA-110468914-1"
+googleAnalytics = "UA-110458010-1"
 
 # Enable / Disable comments on the articles via Disqus.
 disqusShortname = ""
