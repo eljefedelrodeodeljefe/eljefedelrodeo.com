@@ -14,6 +14,6 @@ author: "eljefedelrodeodeljefe"
 
 A couple years ago, I had [Christian Hasselbusch](http://www.c-hasselbusch.de/) taking pictures of me for business purposes. Christian is a phantastic portrait photographer, with a great portfolio. Telling from his site, I do not really fit into the line of beautiful editorial-ready people he usually takes photos of. But having had that shoot, I can tell, he really gets the maximumn out of the people and is combining that with his great technical skills. This really surprised me when I was the subject and led to those great results.
 
-Ever since I am happy for those photos, as they follow me to every professional gig, and are I my avatars on the web.
+Ever since I am happy with those photos, as they follow me to every professional gig, and are my avatars on the web.
 
 We will have a shooting again in 2018.
