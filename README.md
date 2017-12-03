@@ -1,6 +1,6 @@
-# [jefe.io](https://jefe.io)
+# [eljefedelrodeo.com](https://eljefedelrodeo.com)
 
-> The personal blog of Robert Jefe Lindstaedt ([eljefedelrodeodeljefe](https://github.com/eljefedelrodeodeljefe/jefe.io))
+> The personal blog of Robert Jefe Lindstaedt ([eljefedelrodeodeljefe](https://github.com/eljefedelrodeodeljefe/eljefedelrodeo.com))
 
 ## Development
 
