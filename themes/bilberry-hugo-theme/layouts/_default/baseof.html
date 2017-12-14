@@ -23,6 +23,13 @@
 
         {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
         <title>{{ block "title" . }}{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}{{ end }}</title>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-3427978852036574",
+                enable_page_level_ads: true
+            });
+        </script>
     </head>
     <body class="bilberry-hugo-theme">
         {{ partial "topnav" . }}
