@@ -1,8 +1,150 @@
 header {
-  background-color: rgb(18, 54, 71) !important;
-  /* background: url('../images/iStock-494730916.jpg') no-repeat center center fixed; 
+    background-color: rgb(18, 54, 71) !important;
+    /* background: url('../images/iStock-494730916.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; */
+}
+
+.approve-it {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.approve-it * {
+    display: inline-block;
+    -webkit-border-radius: 100%;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 100%;
+    -moz-background-clip: padding;
+    border-radius: 100%;
+    background-clip: padding-box;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+.approve-it .stamp {
+    transform: rotate(-15deg);
+    margin: 1em;
+    width: 6em;
+    height: 6em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-border-radius: 100%;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 100%;
+    -moz-background-clip: padding;
+    border-radius: 100%;
+    background-clip: padding-box;
+    -webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
+    -webkit-box-shadow: 0.1em 0.3em 0.5em -0.3em rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0.1em 0.3em 0.5em -0.3em rgba(0, 0, 0, 0.75);
+    box-shadow: 0.1em 0.3em 0.5em -0.3em rgba(0, 0, 0, 0.75);
+    transition: box-shadow 0.05s ease-in-out, transform 0.05s ease-in-out;
+    -webkit-transition: box-shadow 0.05s ease-in-out, transform 0.05s ease-in-out;
+    -moz-transition: box-shadow 0.05s ease-in-out, transform 0.05s ease-in-out;
+    -ms-transition: box-shadow 0.05s ease-in-out, transform 0.05s ease-in-out;
+    -o-transition: box-shadow 0.05s ease-in-out, transform 0.05s ease-in-out;
+}
+
+.approve-it .stamp.active {
+    -webkit-box-shadow: 0.1em 0.3em 0.2em -0.3em rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0.1em 0.3em 0.2em -0.3em rgba(0, 0, 0, 0.75);
+    box-shadow: 0.1em 0.3em 0.2em -0.3em rgba(0, 0, 0, 0.75);
+    transform: translate(0.02em, 0.02em) rotate(-15deg);
+    -webkit-transform: translate(0.02em, 0.02em) rotate(-15deg);
+    -moz-transform: translate(0.02em, 0.02em) rotate(-15deg);
+    -ms-transform: translate(0.02em, 0.02em) rotate(-15deg);
+    -o-transform: translate(0.02em, 0.02em) rotate(-15deg);
+}
+
+.approve-it .stamp {
+    background: #fff;
+    position: relative;
+    border: #2ecc71 2px dashed;
+    left: 0;
+}
+
+.approve-it .stamp .inner {
+    background: #fff;
+    background-image: 8121991;
+    background-image: -webkit-radial-gradient(center center, #fff 0%, #e6f9ee 100%);
+    background-image: -moz-radial-gradient(center center, #fff 0%, #e6f9ee 100%);
+    background-image: -o-radial-gradient(center center, #fff 0%, #e6f9ee 100%);
+    background-image: radial-gradient(center center, #fff 0%, #e6f9ee 100%);
+    width: 85%;
+    height: 85%;
+    position: absolute;
+    border: #e6f9ee 1px solid;
+}
+
+.approve-it .stamp .inner p {
+    font-size: 100px;
+    font-family: Lato, helvetica, sans-serif;
+    text-shadow: 2px 4px 0 rgba(0, 0, 0, 0.05);
+    line-height: 170px;
+    color: #27ae60;
+}
+
+.approve-it .stamp .inner .check-mark {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 4em;
+    font-family: Lato, helvetica, sans-serif;
+    text-shadow: 2px 4px 0 rgba(0, 0, 0, 0.05);
+    line-height: 100%;
+    color: #27ae60;
+    top: -3em;
+}
+
+.approve-it .stamp .inner p span {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.39);
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: none;
+    position: absolute;
+    width: 100%;
+    line-height: 30px;
+    border-radius: 0.5em;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 0 0 1px #bcf0d2 inset, 0 1px 0 3px rgba(0, 0, 0, 0.02);
+    -moz-box-shadow: 0 0 0 1px #bcf0d2 inset, 0 1px 0 3px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 0 0 1px #bcf0d2 inset, 0 1px 0 3px rgba(0, 0, 0, 0.02);
+    left: 0;
+    bottom: 5px;
+    -ms-border-radius: 0.5em;
+    -o-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
 }
