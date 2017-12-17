@@ -30,6 +30,12 @@ header {
     background-clip: padding-box;
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .approve-it .stamp {

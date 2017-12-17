@@ -17,6 +17,8 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch-theme-algolia.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/0.12.25/Tone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.5.5/localforage.nopromises.min.js"></script>
 
     {{ range .Site.Params.custom_css -}}
     <link rel="stylesheet" href="{{ . | absURL }}">
@@ -45,13 +47,25 @@
   {{ partial "footer" . }} {{ template "_internal/google_analytics_async.html" . }}
 
   <script src="{{ "dist/theme.js" | relURL }}"></script>
-  <!-- <audio id="click-audio" src="http://dev.interactive-creation-works.net/1/1.ogg"></audio> -->
   <script>
-    // var clickAudio = document.getElementById("click-audio");
-    // function playClick () {
-    //   clickAudio.play();
-    // }
+    function maybeStore () {
+      localforage.getItem('piece', function (err, value) {
+        if(err) return console.error(err);
 
+        var obj
+        if (value) {
+          obj = JSON.parse(value)
+          obj.count++
+        } else {
+          obj = { count: 1 }
+        }
+
+        localforage.setItem('piece', JSON.stringify(obj), function (err) {
+          if (err) return console.error(err);
+        });
+      })
+    }
+    
     function createCORSRequest(method, url) {
       var xhr = new XMLHttpRequest();
       if ("withCredentials" in xhr) {
@@ -68,16 +82,18 @@
       return xhr;
     }
 
+    var divs = document.querySelectorAll('div.stamp')
+    var polySynth = new Tone.PolySynth(4, Tone.Synth).toMaster();
+    polySynth.volume.value = -25
 
+    for (var i = 0; i < divs.length; ++i) {
+      divs[i].addEventListener('mouseup', function () {
+        polySynth.triggerRelease(['C4', 'E4', 'G4', 'B4'])
+      })
 
-    var divs = document.querySelectorAll('div.stamp'),
-      i;
-    for (i = 0; i < divs.length; ++i) {
-      divs[i].addEventListener('click', function name(e) {
+      divs[i].addEventListener('mousedown', function name(e) {
         this.classList.add('active')
-        // playClick();
-
-
+        
         var data = JSON.stringify({
           "hesitant": null
         });
@@ -88,9 +104,10 @@
           return;
         }
 
+        polySynth.triggerAttack(['C4', 'E4', 'G4', 'B4'])
+
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.setRequestHeader("Cache-Control", "no-cache");
-
 
         xhr.addEventListener("readystatechange", function () {
           if (this.readyState === 4) {
@@ -98,13 +115,9 @@
           }
         });
 
-        // xhr.onerror = function (e) {                        
-        //     console.log('Woops, there was an error making the request.');
-        // };
-
         xhr.send(data);
 
-        // console.info('dispatching approve it request', this);
+        maybeStore();
 
         setTimeout(() => {
           this.classList.remove('active')
