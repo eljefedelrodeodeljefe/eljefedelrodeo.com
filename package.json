@@ -1,6 +1,6 @@
 {
   "name": "eljefedelrodeo.com",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The personal blog of Robert Jefe Lindstaedt",
   "main": "index.js",
   "scripts": {
