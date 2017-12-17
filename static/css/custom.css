@@ -80,7 +80,7 @@ header {
 .approve-it .stamp {
     background: #fff;
     position: relative;
-    border: #2ecc71 2px dashed;
+    border: #259c6b 2px dashed;
     left: 0;
 }
 
@@ -102,7 +102,7 @@ header {
     font-family: Lato, helvetica, sans-serif;
     text-shadow: 2px 4px 0 rgba(0, 0, 0, 0.05);
     line-height: 170px;
-    color: #27ae60;
+    color: #259c6b;
 }
 
 .approve-it .stamp .inner .check-mark {
@@ -121,7 +121,7 @@ header {
     font-family: Lato, helvetica, sans-serif;
     text-shadow: 2px 4px 0 rgba(0, 0, 0, 0.05);
     line-height: 100%;
-    color: #27ae60;
+    color: #259c6b;
     top: -3em;
 }
 
