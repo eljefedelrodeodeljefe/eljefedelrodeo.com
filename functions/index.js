@@ -1,6 +1,5 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
-const cors = require('cors')({ origin: true })
 const Ajv = require('ajv')
 const ajv = new Ajv()
 
@@ -61,46 +60,37 @@ admin.initializeApp(functions.config().firebase)
  * ```
  */
 exports.approve = functions.https.onRequest((req, res) => {
-  if (req.method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
-    res.header('Access-Control-Allow-Headers', 'cache-control,content-type')
-    return res.send(200)
+  const now = new Date() // this will not be UTC in firestore, unfortunately
+  // guard against some user input
+  const valid = validate(req.body)
+  if (!valid) {
+    console.error(validate.errors)
+
+    return res.status(400).json({
+      status: 400,
+      msg: 'input not allowed.',
+      result: validate.errors
+    })
   }
 
-  cors(req, res, () => {
-    const now = new Date() // this will not be UTC in firestore, unfortunately
-    // guard against some user input
-    const valid = validate(req.body)
-    if (!valid) {
-      console.error(validate.errors)
-
-      return res.status(400).json({
-        status: 400,
-        msg: 'input not allowed.',
-        result: validate.errors
-      })
-    }
-
-    const doc = Object.assign(req.body, {
-      created_at: now,
-      updated_at: null
-    })
-
-    admin.firestore().collection('approvals').add(doc)
-      .then(writeResult => {
-        return res.status(200).json({
-          status: 200,
-          result: `Approval added, with storage ID: ${writeResult.id}.`
-        })
-      })
-      .catch((err) => {
-        console.error(err)
-
-        return res.status(500).json({
-          status: 500,
-          result: `Approval could not be added. Please contact support.`
-        })
-      })
+  const doc = Object.assign(req.body, {
+    created_at: now,
+    updated_at: null
   })
+
+  admin.firestore().collection('approvals').add(doc)
+    .then(writeResult => {
+      return res.status(200).json({
+        status: 200,
+        result: `Approval added, with storage ID: ${writeResult.id}.`
+      })
+    })
+    .catch((err) => {
+      console.error(err)
+
+      return res.status(500).json({
+        status: 500,
+        result: `Approval could not be added. Please contact support.`
+      })
+    })
 })

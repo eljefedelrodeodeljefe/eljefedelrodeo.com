@@ -1,110 +1,74 @@
 <!doctype html>
 <html class="no-js" lang="{{ .Site.Language.Lang }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="{{ .Site.Params.author }}">
+        <meta name="description" content="{{ .Site.Params.description }}">
+        <meta name="keywords" content="{{ .Site.Params.keywords }}">
+        {{ .Hugo.Generator }}
 
-  <meta name="author" content="{{ .Site.Params.author }}">
-  <meta name="description" content="{{ .Site.Params.description }}">
-  <meta name="keywords" content="{{ .Site.Params.keywords }}"> {{ .Hugo.Generator }}
+        <link rel="icon" type="image/png" href="{{ "/favicon-32x32.png" | relURL }}" sizes="32x32">
+        <link rel="icon" type="image/png" href="{{ "/favicon-16x16.png" | relURL }}" sizes="16x16">
 
-  <link rel="icon" type="image/png" href="{{ " /favicon-32x32.png " | relURL }}" sizes="32x32">
-  <link rel="icon" type="image/png" href="{{ " /favicon-16x16.png " | relURL }}" sizes="16x16">
+        <link rel="stylesheet" href="{{ "dist/theme.css" | relURL }}">
 
-  <link rel="stylesheet" href="{{ " dist/theme.css " | relURL }}">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch-theme-algolia.min.css">
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch-theme-algolia.min.css"> {{ range .Site.Params.custom_css -}}
-  <link rel="stylesheet" href="{{ . | absURL }}"> {{- end }} {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
-  <title>{{ block "title" . }}{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}{{ end }}</title>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-3427978852036574",
-      enable_page_level_ads: true
-    });
-  </script>
-</head>
+        {{ range .Site.Params.custom_css -}}
+        <link rel="stylesheet" href="{{ . | absURL }}">
+        {{- end }}
 
-<body class="bilberry-hugo-theme">
-  {{ partial "topnav" . }} {{ partial "header" . }}
+        {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
+        <title>{{ block "title" . }}{{ .Site.Title }} {{ with .Title }} | {{ . }}{{ end }}{{ end }}</title>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-3427978852036574",
+                enable_page_level_ads: true
+            });
+        </script>
+    </head>
+    <body class="bilberry-hugo-theme">
+        {{ partial "topnav" . }}
 
-  <div class="main container">
-    {{ block "main" . }}{{ end }}
-  </div>
+        {{ partial "header" . }}
 
-  {{ partial "footer" . }} {{ template "_internal/google_analytics_async.html" . }}
+        <div class="main container">
+            {{ block "main" . }}{{ end }}
+        </div>
 
-  <script src="{{ " dist/theme.js " | relURL }}"></script>
-  <!-- <audio id="click-audio" src="http://dev.interactive-creation-works.net/1/1.ogg"></audio> -->
-  <script>
-    // var clickAudio = document.getElementById("click-audio");
-    // function playClick () {
-    //   clickAudio.play();
-    // }
+        {{ partial "footer" . }}
 
-    function createCORSRequest(method, url) {
-      var xhr = new XMLHttpRequest();
-      if ("withCredentials" in xhr) {
-        // XHR for Chrome/Firefox/Opera/Safari.
-        xhr.open(method, url, true);
-      } else if (typeof XDomainRequest != "undefined") {
-        // XDomainRequest for IE.
-        xhr = new XDomainRequest();
-        xhr.open(method, url);
-      } else {
-        // CORS not supported.
-        xhr = null;
-      }
-      return xhr;
-    }
+        {{ template "_internal/google_analytics_async.html" . }}
 
+        {{ if and (isset .Site.Params "enable_mathjax") (eq .Site.Params.enable_mathjax true) }}
+        {{ partial "mathjax" . }}
+        {{ end }}
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment-with-locales.min.js" integrity="sha256-TbOIe++NbC9P3KTtUMJ5wcROlBdnRqrPleLdpPg3xxE=" crossorigin="anonymous"></script>
+        <script src="{{ "dist/theme.js" | relURL }}"></script>
 
-    var divs = document.querySelectorAll('div.stamp'),
-      i;
-    for (i = 0; i < divs.length; ++i) {
-      divs[i].addEventListener('click', function name(e) {
-        this.classList.add('active')
-        playClick();
+        <script>
+            $(document).ready(function() {
+                $(".moment").each(function() {
+                    $(this).text(
+                        moment( $(this).text() )
+                            .locale( {{ .Site.Language.Lang }} )
+                            .format('LL')
+                    );
+                });
 
+                $(".footnote-return sup").html({{ i18n "footnoteReturnText" }})
+            })
+        </script>
 
-        var data = JSON.stringify({
-          "hesitant": null
-        });
-        var url = 'https://us-central1-jefe-io.cloudfunctions.net/approve';
-        var xhr = createCORSRequest('POST', url);
-        if (!xhr) {
-          console.log('CORS not supported');
-          return;
-        }
-
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.setRequestHeader("Cache-Control", "no-cache");
+        {{ if and (isset .Site.Params "algolia_search") (eq .Site.Params.algolia_search true) }}
+            {{ partial "algolia-search" . }}
+        {{ end }}
 
 
-        xhr.addEventListener("readystatechange", function () {
-          if (this.readyState === 4) {
-            console.info(this.responseText);
-          }
-        });
-
-        // xhr.onerror = function (e) {                        
-        //     console.log('Woops, there was an error making the request.');
-        // };
-
-        xhr.send(data);
-
-        console.info('dispatching approve it request', this);
-
-
-        setTimeout(() => {
-          this.classList.remove('active')
-        }, 300);
-      })
-    }
-  </script>
-</body>
-
+    </body>
 </html>
