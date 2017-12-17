@@ -75,7 +75,7 @@
     for (i = 0; i < divs.length; ++i) {
       divs[i].addEventListener('click', function name(e) {
         this.classList.add('active')
-        playClick();
+        // playClick();
 
 
         var data = JSON.stringify({
@@ -104,8 +104,7 @@
 
         xhr.send(data);
 
-        console.info('dispatching approve it request', this);
-
+        // console.info('dispatching approve it request', this);
 
         setTimeout(() => {
           this.classList.remove('active')
