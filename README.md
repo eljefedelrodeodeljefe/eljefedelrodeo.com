@@ -14,6 +14,14 @@
 hugo server -D
 ```
 
+### Authoring
+
+#### New Post
+
+```bash
+hugo new [article|...]/[name of resource].md
+```
+
 ## License
 
 MIT
