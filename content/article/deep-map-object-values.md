@@ -2,7 +2,7 @@
 title: "Deep Map Object Values"
 date: 2018-01-20T16:39:09+01:00
 
-categories: ['code']
+categories: ['code', 'helpers']
 tags: ['javascript', 'utilities', 'objects']
 author: "eljefedelrodeodeljefe"
 noSummary: false
