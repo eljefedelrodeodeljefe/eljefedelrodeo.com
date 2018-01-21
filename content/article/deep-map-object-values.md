@@ -49,7 +49,7 @@ module.exports = deepMap
 
 ## Prelude: A Feature Flagging Implementation
 
-Imagine a SPA that has those constants and environment variables that will be defined by the built pipeline as `process.env` gloabls and uses a feature flagging library like React [Flag](https://github.com/garbles/flag) or any implmenetation similar to [Martin Fowlers classic](https://martinfowler.com/articles/feature-toggles.html).
+Imagine a SPA that has those constants and environment variables that will be defined by the built pipeline as `process.env` globals and uses a feature flagging library like React [Flag](https://github.com/garbles/flag) or any implmenetation similar to [Martin Fowlers classic](https://martinfowler.com/articles/feature-toggles.html).
 
 ```js
 const { inDevelopEnvironment } = require('../utils/env')
@@ -107,7 +107,7 @@ Now, the problem is that JavaScript does not have a any primitive yet, to map th
 
 ### #1: Modern JavaScript
 
-For the above case, the one with the least assumptions about your application logic and inputs, as well as the most readable, is the following, by [geoffroy-warin](https://stackoverflow.com/users/1639063/geoffroy-warin) you can find [here](https://stackoverflow.com/a/39209226/3580261).
+For the above case, the one with the least assumptions about your application logic and inputs, as well as the most readable, is the following, by [geoffroy-warin](https://stackoverflow.com/users/1639063/geoffroy-warin) you can find [here](https://stackoverflow.com/a/39209226/3580261), to [this question](https://stackoverflow.com/questions/25333918/js-deep-map-function).
 
 ```js
 export function mapObject (obj, fn) {
