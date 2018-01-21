@@ -13,7 +13,8 @@ Given a deep object, for example a frontend feature flag map, you might want to 
 
 <!--more-->
 
-<details><summary><b>TL;DR</b></summary>
+<details>
+<summary><b>TL;DR</b></summary>
 <p>
 
 ```js
