@@ -154,3 +154,26 @@ header {
     -webkit-border-radius: 0.5em;
     -moz-border-radius: 0.5em;
 }
+
+.bilberry-hugo-theme article .content > * {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.bilberry-hugo-theme article .content > pre {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.bilberry-hugo-theme article .content {
+    padding: 0;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.bilberry-hugo-theme article .content > h1, 
+.bilberry-hugo-theme article .content > h2, 
+.bilberry-hugo-theme article .content > h3 {
+    padding-left: 1em;
+    padding-right: 1em;
+}
