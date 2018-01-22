@@ -22,6 +22,15 @@ hugo server -D
 hugo new [article|...]/[name of resource].md
 ```
 
+### Themeing
+
+```bash
+cd themes/bilberry-hugo-theme/src
+yarn install
+# make changes
+yarn run production
+```
+
 ## License
 
 MIT
